@@ -1,6 +1,7 @@
 package br.com.alura.tdd.service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import br.com.alura.tdd.modelo.Funcionario;
 
@@ -12,7 +13,7 @@ BonusService {
 		if (valor.compareTo(new BigDecimal("1000")) > 0) {
 			valor = BigDecimal.ZERO;
 		}
-		return valor;
+		return valor.setScale(2, RoundingMode.HALF_UP);
 	}
 
 }
